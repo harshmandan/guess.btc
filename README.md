@@ -5,7 +5,7 @@ A simple bitcoin tracker and prediction game. Win points by correctly predicting
 
 # Demo
 
-Here you go 👀
+[Here you go 👀](https://guessbtc.netlify.app/)
 
 # Running
 
