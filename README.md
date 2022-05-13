@@ -1,4 +1,5 @@
 # Guess.btc
+![image](https://github.com/harshmandan/guess.btc/blob/main/static/favicon.png?raw=true)
 
 A simple bitcoin tracker and prediction game. Win points by correctly predicting the price!
 
