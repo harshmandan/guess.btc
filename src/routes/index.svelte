@@ -4,9 +4,9 @@
 <script lang="ts">
 	import Ticker from '$lib/components/Ticker.svelte';
 	import BidCountdown from '$lib/components/BidCountdown.svelte';
+	import { score } from '$lib/stores/score';
 
 	let price: number;
-	let score = 0;
 </script>
 
 <svelte:head>
@@ -20,7 +20,7 @@
 
 	<div class="flex flex-col items-center p-4 space-y-2 text-white rounded-lg bg-white/10">
 		<div class="text-4xl">🏆</div>
-		<div>Your Score: {score}</div>
+		<div>Your Score: {$score}</div>
 		<div class="text-sm opacity-50">Predict correctly to win points</div>
 	</div>
 
@@ -29,5 +29,5 @@
 		<Ticker bind:price class="text-4xl font-extrabold" prefix="$ " />
 	</div>
 
-	<BidCountdown on:success={() => (score += 1)} {price} countdownTime={5} prefix="$ " />
+	<BidCountdown on:success={() => ($score += 1)} {price} countdownTime={5} prefix="$ " />
 </div>
