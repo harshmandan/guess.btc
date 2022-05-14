@@ -13,8 +13,8 @@
 	<title>Guess.btc</title>
 </svelte:head>
 
-<div class="flex flex-col items-center justify-center w-full h-full space-y-16 text-gray-300">
-	<div class="p-4 font-bold text-green-500 rounded-md text-8xl bg-white/10">
+<div class="flex flex-col items-center justify-center w-full h-full mt-16 space-y-16 text-gray-300">
+	<div class="p-4 text-5xl font-bold text-green-500 rounded-md md:text-8xl bg-white/10">
 		Guess<span class="text-yellow-400">.btc</span>
 	</div>
 
@@ -29,5 +29,7 @@
 		<Ticker bind:price class="text-4xl font-extrabold" prefix="$ " />
 	</div>
 
-	<BidCountdown on:success={() => ($score += 1)} {price} countdownTime={5} prefix="$ " />
+	<div class="mb-16">
+		<BidCountdown on:success={() => ($score += 1)} {price} countdownTime={5} prefix="$ " />
+	</div>
 </div>

@@ -3,7 +3,7 @@
 		placedAt: number;
 		is: 'up' | 'down';
 		resultPrice?: number;
-		result?: 'win' | 'lose' | 'nochange';
+		result?: 'win' | 'lose' | 'noChange';
 	};
 </script>
 
@@ -51,16 +51,14 @@
 					bid.result = 'win';
 					dispatch('success');
 				} else if (bid.resultPrice == bid.placedAt) {
-					bid.result = 'nochange';
+					bid.result = 'noChange';
 				} else bid.result = 'lose';
 			}
 		}
 	}
-
-	$: console.log('bid placed at:', bid?.placedAt, 'result price', bid?.resultPrice);
 </script>
 
-<place-bids class="flex flex-col items-center space-y-4">
+<place-bids class="flex flex-col items-center w-full h-full px-4 space-y-4">
 	<div>
 		Predict whether the price will go up or down in the next <span class="font-bold underline">
 			{countdownTime} seconds
@@ -70,11 +68,13 @@
 		{#if bid && typeof bid.resultPrice !== 'undefined'}
 			<div class="flex flex-col items-center p-4 space-y-8 rounded-lg bg-slate-700">
 				{#if bid.result === 'win'}
-					<div class="text-5xl font-bold text-green-400">You won 😎</div>
-				{:else if bid.result === 'nochange'}
-					<div class="text-5xl font-bold text-white-400">No change in price! Try again 😶</div>
+					<div class="text-2xl font-bold text-green-400 md:text-5xl">You won 😎</div>
+				{:else if bid.result === 'noChange'}
+					<div class="text-2xl font-bold md:text-5xl text-white-400">
+						No change in price! Try again 😶
+					</div>
 				{:else}
-					<div class="text-5xl font-bold text-red-400">You lost 😢</div>
+					<div class="text-2xl font-bold text-red-400 md:text-5xl">You lost 😢</div>
 				{/if}
 				<button
 					on:click={reset}

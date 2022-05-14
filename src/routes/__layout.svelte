@@ -3,6 +3,6 @@
 	import '../css/main.css';
 </script>
 
-<div class="bg-slate-900 h-screen w-full">
+<div class="w-full h-screen overflow-hidden overflow-y-auto bg-slate-900">
 	<slot />
 </div>
